@@ -50,7 +50,7 @@ export class InputPageComponent {
       },
       error: (err) => {
         console.error('Erreur API:', err);
-        this.textAreaValue = 'Une erreur est survenue lors du traitement.';
+        this.textAreaValue = '❌ Veuillez fournir un polynôme valide avec une méthode et un ordre supportés.';
       }
     });
   }
@@ -79,7 +79,7 @@ export class InputPageComponent {
       },
       error: (err) => {
         console.error('Erreur API:', err);
-        this.textAreaValue = 'Une erreur est survenue lors du traitement.';
+        this.textAreaValue = '❌ Veuillez fournir un polynôme valide avec une méthode et un ordre supportés.';
       }
     });
   }
