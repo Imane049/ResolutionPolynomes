@@ -1,11 +1,12 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { InputPageComponent } from './app/input-page/input-page.component';
+import { AppComponent } from './app/app.component';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app.routes';
 
-bootstrapApplication(InputPageComponent, {
+bootstrapApplication(AppComponent, {
   providers: [
-    provideHttpClient(withInterceptorsFromDi()),
-    { provide: FormsModule }
-  ]
+    provideRouter(routes), // Provide routing
+    provideHttpClient(),   // Provide HttpClient
+  ],
 }).catch(err => console.error(err));

@@ -4,8 +4,8 @@ import org.example.bairstowresolution.Models.PolynomialEntry;
 import org.example.bairstowresolution.Models.PolynomialResponse;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class BairstowService {
@@ -22,12 +22,11 @@ public class BairstowService {
             throw new IllegalArgumentException("The number of coefficients must match the polynomial order + 1.");
         }
 
-        double r = -1.0; // Initial guess for r
-        double s = -1.0; // Initial guess for s
+        double r = -1.0;
+        double s = -1.0;
 
         while (order >= 2) {
             if (order == 2) {
-                // Quadratic polynomial
                 roots.addAll(solveQuadratic(coefficients[0], coefficients[1], coefficients[2]));
                 break;
             }
@@ -37,7 +36,6 @@ public class BairstowService {
             int iterations = 0;
 
             while (iterations < MAX_ITERATIONS) {
-                // Synthetic Division
                 b[order] = coefficients[order];
                 b[order - 1] = coefficients[order - 1] + r * b[order];
                 for (int i = order - 2; i >= 0; i--) {
@@ -50,7 +48,6 @@ public class BairstowService {
                     c[i] = b[i] + r * c[i + 1] + s * c[i + 2];
                 }
 
-                // Calculate corrections for r and s
                 double determinant = c[2] * c[2] - c[3] * c[1];
                 if (Math.abs(determinant) < TOLERANCE) {
                     break;
@@ -68,7 +65,6 @@ public class BairstowService {
                 iterations++;
             }
 
-            // Solve quadratic factor (x^2 - rx - s)
             double discriminant = r * r + 4 * s;
             if (discriminant >= 0) {
                 double root1 = (r + Math.sqrt(discriminant)) / 2;
@@ -82,17 +78,18 @@ public class BairstowService {
                 roots.add(String.format("%.6f - %.6fi", realPart, imaginaryPart));
             }
 
-            // Deflate the polynomial
             coefficients = deflatePolynomial(coefficients, r, s);
             order -= 2;
         }
 
-        // Handle linear term if it remains
         if (order == 1) {
             roots.add(String.format("%.6f", -coefficients[1] / coefficients[0]));
         }
 
-        return new PolynomialResponse(roots, "Factorization completed using Bairstow's method");
+        // Factorize into exponential notation
+        String factorizedForm = formatFactorization(roots);
+
+        return new PolynomialResponse(roots, "Factorization completed: " + factorizedForm);
     }
 
     /**
@@ -132,5 +129,31 @@ public class BairstowService {
         }
 
         return newCoefficients;
+    }
+
+    /**
+     * Format roots into factorized exponential form
+     */
+    private String formatFactorization(List<String> roots) {
+        Map<String, Long> rootCounts = roots.stream()
+                .collect(Collectors.groupingBy(root -> root, LinkedHashMap::new, Collectors.counting()));
+
+        StringBuilder factorized = new StringBuilder();
+        for (Map.Entry<String, Long> entry : rootCounts.entrySet()) {
+            String root = entry.getKey();
+            Long count = entry.getValue();
+
+            if (root.contains("+") || root.contains("-")) {
+                factorized.append(String.format("(x - (%s))", root));
+            } else {
+                factorized.append(String.format("(x - %s)", root));
+            }
+
+            if (count > 1) {
+                factorized.append("^").append(count);
+            }
+        }
+
+        return factorized.toString();
     }
 }

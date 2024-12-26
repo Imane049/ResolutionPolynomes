@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 export interface PolynomialRequest {
   polynomial: string;
   domain: string;
-  method: string; // e.g., "numerical", "analytical", or "detailed"
+  method: string; // "numerical", "analytical", or "detailed"
 }
 
 export interface PolynomialResult {
-  roots: string[]; // Array of roots
-  factorizedForm: string; // Factorized polynomial form
-  detailedSteps?: string; // Optional detailed steps for explanation
+  roots?: string[]; // For numerical/analytical results
+  factorizedForm?: string; // For numerical/analytical results
+  text?: string; // For detailed results
 }
 
 @Injectable({

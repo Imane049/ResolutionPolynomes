@@ -1,0 +1,96 @@
+/* General Container Styles */
+.polynomial-container {
+    padding: 3rem 2rem 10rem 2rem;
+    background: linear-gradient(to bottom, rgba(23, 23, 57, 0), #00115a, #75038c);
+    color: white;
+    min-height: 100vh;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Title Styling */
+  .polynomial-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  /* Description Styling */
+  .polynomial-description {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #ccc;
+  }
+  
+  /* Polynomials Grid Layout */
+  .polynomial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+  }
+  
+  /* Polynomial Card */
+  .polynomial-card {
+    background-color: rgba(20, 20, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1.5rem;
+  }
+  
+  .polynomial-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Card Content */
+  .card-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+  
+  .card-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #ccc;
+  }
+  
+  /* Interactive Section */
+  .interactive-section {
+    margin-top: 4rem;
+    padding: 2rem 2rem 4rem 2rem;
+    background-color: rgba(10, 12, 24, 0.8);
+    border-radius: 10px;
+  }
+  
+  .interactive-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+  
+  .interactive-section p {
+    margin-bottom: 2rem;
+    color: #ccc;
+  }
+  
+  .btn-solve {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    background: linear-gradient(45deg, #00c853, #5dbe8e);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-solve:hover {
+    background: linear-gradient(45deg, #5dbe8e, #00c853);
+  }
+  

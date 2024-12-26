@@ -16,6 +16,7 @@ export class InputPageComponent {
   selectedAnalyticalMethod: string = '';
   showAnalyticalOptions: boolean = false;
   textAreaValue: string = '';
+  showDetailedModal: boolean = false; // For modal visibility
 
   constructor(private polynomialService: PolynomialService) {}
 
@@ -23,7 +24,7 @@ export class InputPageComponent {
     this.showAnalyticalOptions = method === 'analytical';
   }
 
-  // Method for standard resolution
+  // Standard resolution
   onResolutionClick() {
     if (!this.inputValue) {
       this.textAreaValue = 'Veuillez entrer un polynôme valide.';
@@ -40,8 +41,12 @@ export class InputPageComponent {
 
     this.polynomialService.evaluatePolynomial(request).subscribe({
       next: (response) => {
-        const roots = response.roots.join(', ');
-        this.textAreaValue = `Racines: ${roots}\nForme Factorisée: ${response.factorizedForm}`;
+        if (response.roots && response.factorizedForm) {
+          const roots = response.roots.join(', ');
+          this.textAreaValue = `Racines: ${roots}\nForme Factorisée: ${response.factorizedForm}`;
+        } else {
+          this.textAreaValue = 'Résultat invalide ou incomplet.';
+        }
       },
       error: (err) => {
         console.error('Erreur API:', err);
@@ -50,7 +55,7 @@ export class InputPageComponent {
     });
   }
 
-  // Method for detailed resolution
+  // Detailed resolution with modal
   onDetailedResolutionClick() {
     if (!this.inputValue) {
       this.textAreaValue = 'Veuillez entrer un polynôme valide.';
@@ -60,15 +65,16 @@ export class InputPageComponent {
     const request: PolynomialRequest = {
       polynomial: this.inputValue,
       domain: this.domain,
-      method: 'detailed' // Explicitly set method to "detailed"
+      method: 'detailed'
     };
 
     this.polynomialService.evaluatePolynomial(request).subscribe({
       next: (response) => {
-        const roots = response.roots.join(', ');
-        this.textAreaValue = `Racines: ${roots}\nForme Factorisée: ${response.factorizedForm}`;
-        if (response.detailedSteps) {
-          this.textAreaValue += `\nÉtapes détaillées: ${response.detailedSteps}`;
+        if (response.text) {
+          this.textAreaValue = response.text;
+          this.showDetailedModal = true;
+        } else {
+          this.textAreaValue = 'Aucune explication détaillée disponible.';
         }
       },
       error: (err) => {
@@ -76,5 +82,9 @@ export class InputPageComponent {
         this.textAreaValue = 'Une erreur est survenue lors du traitement.';
       }
     });
+  }
+
+  closeDetailedModal() {
+    this.showDetailedModal = false;
   }
 }

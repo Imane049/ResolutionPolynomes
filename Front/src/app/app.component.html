@@ -1,2 +1,7 @@
-<app-navbar></app-navbar>
-<router-outlet />
+<body>
+  <app-navbar></app-navbar> <!-- Navbar always stays at the top -->
+
+  <div id="content-container">
+    <router-outlet></router-outlet> <!-- Page content (e.g., input page, homepage) -->
+  </div>
+</body>

@@ -53,6 +53,8 @@ public class GatewayController {
                 return routeToMullerService(request, response);
             } else if ("fixedpoint".equalsIgnoreCase(request.getMethod())) {
                 return routeToFixedPointService(request, response);
+            } else if ("detailed".equalsIgnoreCase(request.getMethod())) {
+                return routeToGeminiService(request, response);
             } else {
                 return Mono.just("❌ Veuillez fournir un polynôme valide avec une méthode et un ordre supportés.");
             }
@@ -123,6 +125,13 @@ public class GatewayController {
      */
     private Mono<String> routeToFixedPointService(PolynomialRequest request, PolynomialResponse response) {
         return routeToService("http://localhost:8091/api/v1/fixedpoint/solve?initialGuess=1.0&domain=real", buildPayload(request, response), "FixedPointResolution");
+    }
+
+    /**
+     * Redirige la requête vers le service GeminiResolution.
+     */
+    private Mono<String> routeToGeminiService(PolynomialRequest request, PolynomialResponse response) {
+        return routeToService("http://localhost:8088/api/v1/Gemini/solve", buildPayload(request, response), "GeminiResolution");
     }
 
     /**
