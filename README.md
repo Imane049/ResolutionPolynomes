@@ -49,6 +49,10 @@ L'application suit une architecture microservices modulaire avec les composants 
 3. **Analyse & Résolution :** Application des méthodes analytiques ou numériques.
 4. **Interaction avec LLM :** Explication détaillée et itérative des résultats.
 5. **Affichage des Résultats :** Retour structuré au frontend.
+s
+
+https://github.com/user-attachments/assets/45f6d4d8-d6df-41b6-9f15-d7195be1340b
+
 
 ---
 ## Interfaces Utilisateurs
