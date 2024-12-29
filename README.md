@@ -51,6 +51,44 @@ L'application suit une architecture microservices modulaire avec les composants 
 5. **Affichage des Résultats :** Retour structuré au frontend.
 
 ---
+## Interfaces Utilisateurs
+
+### 1. *Page d'accueil*
+![Homepage](homepage.png)
+
+- *Description* : Cette interface accueille les utilisateurs avec un message "Welcomes You". Les utilisateurs peuvent choisir de commencer ou d'apprendre davantage sur la résolution d'équations polynômiales .
+- *Boutons principaux* : 
+  - "Get Started" : Pour accéder directement aux fonctionnalités de résolution.
+  - "Learn More" : Pour explorer les concepts de base des polynômes, leurs types et les méthodes de résolution.
+
+### 2. *Galerie d'explications interactives*
+![Learn More](learnmore.png)
+
+- *Description* : Une section détaillant les concepts de base des polynômes, leurs types et les méthodes de résolution.
+- *Catégories* :
+  - Qu'est-ce qu'un polynôme ?
+  - Types de polynômes.
+  - Méthodes analytiques.
+  - Méthodes numériques.
+
+### 3. *Saisie manuscrite et OCR*
+![Saisie Manuscrite](saisie_manuscrite.png)
+
+- *Description* : Une interface intuitive permettant aux utilisateurs de dessiner une équation ou d’importer une image. La reconnaissance OCR transforme ces saisies en texte exploitable.
+- *Fonctionnalités principales* :
+  - Bouton "Clear" : Efface la saisie.
+  - Bouton "Save" : Enregistre l’équation pour traitement.
+
+### 4. *Résolution d'équations*
+![Solver Interface](Screenshot%202024-12-29%20122927.png)
+
+- *Description* : Une interface pour entrer directement une équation ou en sélectionner une depuis l’OCR.
+- *Options* :
+  - Choix de méthodes : Numérique ou Analytique.
+  - Type de racines : Réelles ou Complexes.
+- *Résultats* : Affiche les solutions, les racines, et les formes factorisées avec une option pour une résolution détaillée.
+
+---
 
 ## **Déploiement**
 ### Prérequis :
