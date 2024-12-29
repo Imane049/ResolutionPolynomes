@@ -142,19 +142,6 @@ L'application suit une architecture microservices modulaire avec les composants 
    http://localhost:4200
    ```
 
----
-
-## **Sécurité**
-- **CORS activé** : Contrôle des origines autorisées.
-- **Authentification API** : Jetons Bearer pour Google Cloud Vision et clé API Gemini API.
-
----
-
-## **Fonctionnalités Clés de l'IA**
-- **Google Cloud Vision API :** Extraction précise de texte.
-- **LLM Gemini 1.5 Flash :** Explications détaillées et choix dynamiques des méthodes de résolution.
-
----
 
 
 ## **Auteurs**
