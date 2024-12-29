@@ -63,20 +63,43 @@ L'application suit une architecture microservices modulaire avec les composants 
    ```bash
    git clone <https://github.com/Imane049/ResolutionPolynomes>
    ```
-2. Construisez les microservices avec Maven :
+
+2. Service OCR (Google Cloud Vision API)
+
+   - Créez un compte de service Google Cloud.
+
+   - Générez un fichier JSON d'authentification et un token d'accès.
+
+   - Placez le fichier JSON et le token dans les propriétés de l'application OCR (`application.properties`).
+
+
+
+3. Service Gemini (Gemini 1.5 Flash)
+
+   - Générez une clé d'API pour Gemini.
+
+   - Ajoutez cette clé dans les propriétés du service Gemini (`application.properties`).
+
+
+
+
+
+
+---
+4. Construisez les microservices avec Maven :
    ```bash
    mvn clean package
    ```
-3. Démarrez les conteneurs Docker :
+5. Démarrez les conteneurs Docker :
    ```bash
    docker-compose build -d
    ```
-4. Démarrez le client FrontEnd :
+6. Démarrez le client FrontEnd :
    ```bash
    npm install
    ng serve
    ```
-5. Accédez à l'application :
+7. Accédez à l'application :
    ```
    http://localhost:4200
    ```
