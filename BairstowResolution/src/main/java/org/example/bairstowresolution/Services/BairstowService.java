@@ -89,7 +89,7 @@ public class BairstowService {
         // Factorize into exponential notation
         String factorizedForm = formatFactorization(roots);
 
-        return new PolynomialResponse(roots, "Factorization completed: " + factorizedForm);
+        return new PolynomialResponse(roots,  factorizedForm);
     }
 
     /**

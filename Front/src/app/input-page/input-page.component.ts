@@ -16,12 +16,31 @@ export class InputPageComponent {
   selectedAnalyticalMethod: string = '';
   showAnalyticalOptions: boolean = false;
   textAreaValue: string = '';
-  showDetailedModal: boolean = false; // For modal visibility
+  showDetailedModal: boolean = false;
+  tooltipText: string = '';
+  tooltipVisible: boolean = false;
+
+  analyticalMethodInfo: { [key: string]: string } = {
+    newton: 'Newton-Raphson: Iterative root-finding method for real-valued functions.',
+    bisection: 'Bisection: Root-finding method by interval division.',
+    bairstow: 'Bairstow: Root-solving method for polynomials with real coefficients.',
+    muller: 'Müller: Iterative method for finding polynomial roots.',
+    fixedpoints: 'Fixed Points: Root-finding using fixed-point iteration.'
+  };
 
   constructor(private polynomialService: PolynomialService) {}
 
   selectMethod(method: string) {
     this.showAnalyticalOptions = method === 'analytical';
+  }
+
+  showTooltip(method: string) {
+    this.tooltipText = this.analyticalMethodInfo[method] || '';
+    this.tooltipVisible = true;
+  }
+
+  hideTooltip() {
+    this.tooltipVisible = false;
   }
 
   // Standard resolution

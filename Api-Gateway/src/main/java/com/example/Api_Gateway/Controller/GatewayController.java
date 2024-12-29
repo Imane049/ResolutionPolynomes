@@ -36,25 +36,25 @@ public class GatewayController {
             PolynomialResponse response = polynomialService.processPolynomial(request);
 
             if (response.getOrder() == 1 && "numerical".equalsIgnoreCase(request.getMethod())) {
-                return routeToLinearService(request, response);
+                return routeToService("linearresolution", "/api/v1/linear/solve", buildPayload(request, response), "LinearResolution");
             } else if (response.getOrder() == 2 && "numerical".equalsIgnoreCase(request.getMethod())) {
-                return routeToQuadraticService(request, response);
+                return routeToService("quadraticresolution", "/api/v1/quadratic/solve", buildPayload(request, response), "QuadraticResolution");
             } else if (response.getOrder() == 3 && "numerical".equalsIgnoreCase(request.getMethod())) {
-                return routeToCardanosService(request, response);
+                return routeToService("cardanosresolution", "/api/v1/cardanos/solve", buildPayload(request, response), "CardanosResolution");
             } else if (response.getOrder() == 4 && "numerical".equalsIgnoreCase(request.getMethod())) {
-                return routeToFerrariService(request, response);
+                return routeToService("ferrariresolution", "/api/v1/ferrari/solve", buildPayload(request, response), "FerrariResolution");
             } else if ("newton".equalsIgnoreCase(request.getMethod())) {
-                return routeToNewtonRaphsonService(request, response);
+                return routeToService("newtonraphsonresolution", "/api/v1/newtonraphson/solve", buildPayload(request, response), "NewtonRaphsonResolution");
             } else if ("bisection".equalsIgnoreCase(request.getMethod())) {
-                return routeToBisectionService(request, response);
+                return routeToService("bisectionresolution", "/api/v1/bisection/solve", buildPayload(request, response), "BisectionResolution");
             } else if ("bairstow".equalsIgnoreCase(request.getMethod())) {
-                return routeToBairstowService(request, response);
+                return routeToService("BAIRSTOWRESOLUTION", "/api/v1/bairstow/solve", buildPayload(request, response), "BAIRSTOWRESOLUTION");
             } else if ("muller".equalsIgnoreCase(request.getMethod())) {
-                return routeToMullerService(request, response);
+                return routeToService("mullerresolution", "/api/v1/muller/solve", buildPayload(request, response), "MullerResolution");
             } else if ("fixedpoint".equalsIgnoreCase(request.getMethod())) {
-                return routeToFixedPointService(request, response);
+                return routeToService("fixedpointresolution", "/api/v1/fixedpoint/solve?initialGuess=1.0&domain=real", buildPayload(request, response), "FixedPointResolution");
             } else if ("detailed".equalsIgnoreCase(request.getMethod())) {
-                return routeToGeminiService(request, response);
+                return routeToService("GEMINIRESOLUTION", "/api/v1/gemini/solve", buildPayload(request, response), "GEMINIRESOLUTION");
             } else {
                 return Mono.just("❌ Veuillez fournir un polynôme valide avec une méthode et un ordre supportés.");
             }
@@ -65,81 +65,13 @@ public class GatewayController {
     }
 
     /**
-     * Redirige la requête vers le service LinearResolution.
-     */
-    private Mono<String> routeToLinearService(PolynomialRequest request, PolynomialResponse response) {
-        return routeToService("http://localhost:8089/api/v1/linear/solve", buildPayload(request, response), "LinearResolution");
-    }
-
-    /**
-     * Redirige la requête vers le service QuadraticResolution.
-     */
-    private Mono<String> routeToQuadraticService(PolynomialRequest request, PolynomialResponse response) {
-        return routeToService("http://localhost:8082/api/v1/quadratic/solve", buildPayload(request, response), "QuadraticResolution");
-    }
-
-    /**
-     * Redirige la requête vers le service CardanosResolution.
-     */
-    private Mono<String> routeToCardanosService(PolynomialRequest request, PolynomialResponse response) {
-        return routeToService("http://localhost:8083/api/v1/cardanos/solve", buildPayload(request, response), "CardanosResolution");
-    }
-
-    /**
-     * Redirige la requête vers le service FerrariResolution.
-     */
-    private Mono<String> routeToFerrariService(PolynomialRequest request, PolynomialResponse response) {
-        return routeToService("http://localhost:8090/api/v1/ferrari/solve", buildPayload(request, response), "FerrariResolution");
-    }
-
-    /**
-     * Redirige la requête vers le service NewtonRaphsonResolution.
-     */
-    private Mono<String> routeToNewtonRaphsonService(PolynomialRequest request, PolynomialResponse response) {
-        return routeToService("http://localhost:8084/api/v1/newtonraphson/solve", buildPayload(request, response), "NewtonRaphsonResolution");
-    }
-
-    /**
-     * Redirige la requête vers le service BisectionResolution.
-     */
-    private Mono<String> routeToBisectionService(PolynomialRequest request, PolynomialResponse response) {
-        return routeToService("http://localhost:8085/api/v1/bisection/solve", buildPayload(request, response), "BisectionResolution");
-    }
-
-    /**
-     * Redirige la requête vers le service BairstowResolution.
-     */
-    private Mono<String> routeToBairstowService(PolynomialRequest request, PolynomialResponse response) {
-        return routeToService("http://localhost:8086/api/v1/bairstow/solve", buildPayload(request, response), "BairstowResolution");
-    }
-
-    /**
-     * Redirige la requête vers le service MullerResolution.
-     */
-    private Mono<String> routeToMullerService(PolynomialRequest request, PolynomialResponse response) {
-        return routeToService("http://localhost:8087/api/v1/muller/solve", buildPayload(request, response), "MullerResolution");
-    }
-
-    /**
-     * Redirige la requête vers le service FixedPointResolution.
-     */
-    private Mono<String> routeToFixedPointService(PolynomialRequest request, PolynomialResponse response) {
-        return routeToService("http://localhost:8091/api/v1/fixedpoint/solve?initialGuess=1.0&domain=real", buildPayload(request, response), "FixedPointResolution");
-    }
-
-    /**
-     * Redirige la requête vers le service GeminiResolution.
-     */
-    private Mono<String> routeToGeminiService(PolynomialRequest request, PolynomialResponse response) {
-        return routeToService("http://localhost:8088/api/v1/Gemini/solve", buildPayload(request, response), "GeminiResolution");
-    }
-
-    /**
      * Envoie une requête générique vers un service donné.
      */
-    private Mono<String> routeToService(String uri, Map<String, Object> payload, String serviceName) {
+    private Mono<String> routeToService(String serviceId, String endpoint, Map<String, Object> payload, String serviceName) {
         try {
+            String uri = "lb://" + serviceId + endpoint;
             System.out.println("🔄 Sending JSON to " + serviceName + ":\n" + payload);
+
             return webClientBuilder.build()
                     .post()
                     .uri(uri)

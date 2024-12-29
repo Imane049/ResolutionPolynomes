@@ -6,6 +6,294 @@
   text-align: center;
   max-width: 1000px;
   margin: 2rem auto 12rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(194, 192, 197, 0.4);
+  color: rgb(51, 51, 51);
+}
+
+/* Heading and Description */
+.ai-generator-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: rgb(51, 51, 51);
+}
+
+.ai-generator-container .description {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  width: 60%;
+  color: rgb(51, 51, 51);
+}
+
+/* Input Field */
+.input-with-button {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 690px;
+  border-radius: 50px;
+  border: 4px solid rgb(131, 141, 161);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.input-with-button input {
+  flex: 1;
+  padding: 1rem;
+  padding-right: 6rem;
+  font-size: 1rem;
+  border: 2px solid rgb(221, 224, 230);
+  outline: none;
+  border-radius: 50px;
+}
+
+.input-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.1rem;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.input-btn:nth-child(2) {
+  right: 3.4rem;
+}
+
+.input-btn:hover {
+  background-color: rgba(212, 220, 215, 0.4);
+  color: white;
+  padding: 1rem;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  color: black;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #e74c3c;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-actions button {
+  padding: 0.75rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(68, 68, 68, 0.4);
+}
+
+.modal-actions .btn-primary {
+  background-color: rgba(68, 68, 68);
+  color: white;
+}
+
+/* Numerical and Analytical Buttons */
+.method-buttons {
+  border: 1px solid rgba(68, 68, 68, 0.4);
+  border-radius: 45px;
+  padding: 4px;
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.btn-method {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  border: none;
+  background-color: transparent;
+  color: rgb(51, 51, 51);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-method:hover {
+  background-color: #1f262e;
+  color: white;
+}
+
+.btn-method.active {
+  background: linear-gradient(45deg, rgb(77, 86, 101), rgb(77, 75, 117));
+  color: white;
+}
+
+/* Dropdown Styling */
+.dropdown {
+  margin-top: 0.6rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown label {
+  margin-bottom: 0.5rem;
+  color: rgb(51, 51, 51);
+  font-size: 1rem;
+}
+
+.dropdown select {
+  padding: 10px 6rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 0 10px #939ba4;
+}
+
+/* Domain Selection */
+.domain-selection {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.domain-selection label {
+  font-size: 1rem;
+  color: #4a4a4a;
+}
+
+/* Resolution Buttons */
+.resolution-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.resolution-buttons .btn-primary {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: #496452;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.resolution-buttons .btn-primary:hover {
+  background: transparent;
+  border: 2px solid #496452;
+  color: #496452;
+}
+
+.resolution-buttons .btn-secondary {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: transparent;
+  color: #496452;
+  border: 2px solid #496452;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resolution-buttons .btn-secondary:hover {
+  background: #496452;
+  color: white;
+}
+
+/* Result Textarea */
+textarea {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  resize: none;
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+/* Tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 0.5rem;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Container Styles */
+.ai-generator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1000px;
+  margin: 2rem auto 12rem auto;
   
   padding: 2rem;
   background-color: rgba(10, 12, 24, 0.6);
@@ -201,7 +489,7 @@ textarea {
   width: 60%;
   max-width: 800px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  color: white;
+  color: black;
   text-align: center;
 }
 
@@ -234,4 +522,677 @@ textarea {
 
 .btn-close:hover {
   background: #cc0000;
+}
+/* Container Styles */
+.ai-generator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1000px;
+  margin: 2rem auto 12rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(194, 192, 197, 0.4);
+  color: rgb(51, 51, 51);
+}
+
+/* Heading and Description */
+.ai-generator-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: rgb(51, 51, 51);
+}
+
+.ai-generator-container .description {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  width: 60%;
+  color: rgb(51, 51, 51);
+}
+
+/* Input Field */
+.input-with-button {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 690px;
+  border-radius: 50px;
+  border: 4px solid rgb(131, 141, 161);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.input-with-button input {
+  flex: 1;
+  padding: 1rem;
+  padding-right: 6rem;
+  font-size: 1rem;
+  border: 2px solid rgb(221, 224, 230);
+  outline: none;
+  border-radius: 50px;
+}
+
+.input-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.1rem;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.input-btn:nth-child(2) {
+  right: 3.4rem;
+}
+
+.input-btn:hover {
+  background-color: rgba(212, 220, 215, 0.4);
+  color: white;
+  padding: 1rem;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #e74c3c;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-actions button {
+  padding: 0.75rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(68, 68, 68, 0.4);
+}
+
+.modal-actions .btn-primary {
+  background-color: rgba(68, 68, 68);
+  color: white;
+}
+
+/* Numerical and Analytical Buttons */
+.method-buttons {
+  border: 1px solid rgba(68, 68, 68, 0.4);
+  border-radius: 45px;
+  padding: 4px;
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.btn-method {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  border: none;
+  background-color: transparent;
+  color: rgb(51, 51, 51);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-method:hover {
+  background-color: #1f262e;
+  color: white;
+}
+
+.btn-method.active {
+  background: linear-gradient(45deg, rgb(77, 86, 101), rgb(77, 75, 117));
+  color: white;
+}
+
+/* Dropdown Styling */
+.dropdown {
+  margin-top: 0.6rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown label {
+  margin-bottom: 0.5rem;
+  color: rgb(51, 51, 51);
+  font-size: 1rem;
+}
+
+.dropdown select {
+  padding: 10px 6rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 0 10px #939ba4;
+}
+
+/* Domain Selection */
+.domain-selection {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.domain-selection label {
+  font-size: 1rem;
+  color: #4a4a4a;
+}
+
+/* Resolution Buttons */
+.resolution-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.resolution-buttons .btn-primary {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: #496452;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.resolution-buttons .btn-primary:hover {
+  background: transparent;
+  border: 2px solid #496452;
+  color: #496452;
+}
+
+.resolution-buttons .btn-secondary {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: transparent;
+  color: #496452;
+  border: 2px solid #496452;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resolution-buttons .btn-secondary:hover {
+  background: #496452;
+  color: white;
+}
+
+/* Result Textarea */
+textarea {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  resize: none;
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+/* Tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 0.5rem;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Container Styles */
+.ai-generator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1000px;
+  margin: 2rem auto 12rem auto;
+  
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(194, 192, 197, 0.4);
+  color: rgb(51, 51, 51);
+}
+
+/* Heading and Description */
+.ai-generator-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: rgb(51, 51, 51);
+}
+
+.ai-generator-container .description {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  width: 60%;
+  color: rgb(51, 51, 51);
+}
+
+/* Input Field
+.input-with-button {
+  display: flex;
+  width: 100%;
+  max-width: 690px;
+  border-radius: 50px;
+  border: 4px solid rgb(131, 141, 161);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.input-with-button input {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid rgb(221, 224, 230);
+  outline: none;
+  border-radius: 50px;
+}*/
+
+.input-with-button {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 690px;
+  border-radius: 50px;
+  border: 4px solid rgb(131, 141, 161);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.input-with-button input {
+  flex: 1;
+  padding: 1rem;
+  padding-right: 6rem; /* Adjust for buttons */
+  font-size: 1rem;
+  border: 2px solid rgb(221, 224, 230);
+  outline: none;
+  border-radius: 50px;
+}
+
+.input-btn {
+  position: absolute;
+  right: 1rem;
+  top: 40%;
+  transform: translateY(-50%);
+  margin-left: 0;
+  padding: 0.1rem;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.input-btn:nth-child(2) {
+  right: 3.4rem; /* Position the second button to the left of the first */
+}
+
+.input-btn:hover {
+  background-color: rgba(212, 220, 215,0.4);
+  color: white;
+  padding: 1rem;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #e74c3c;
+}
+
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.modal-actions button{
+  padding: 0.75rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(68, 68, 68, 0.4);
+
+}
+.modal-actions .btn-primary{
+  background-color: rgba(68, 68, 68);
+  color: white;
+}
+/* Numerical and Analytical Buttons */
+.method-buttons {
+  border: 1px solid rgba(68, 68, 68, 0.4);
+  border-radius: 45px;
+  padding: 4px;
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.btn-method {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  border: none;
+  background-color: transparent;
+  color: rgb(51, 51, 51);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-method:hover {
+  background-color: #1f262e;
+  color: white;
+}
+
+.btn-method.active {
+  background: linear-gradient(45deg, rgb(77, 86, 101), rgb(77, 75, 117));
+  color: white;
+}
+
+/* Dropdown Styling */
+.dropdown {
+  margin-top: 0.6rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown label {
+  margin-bottom: 0.5rem;
+  color: rgb(51, 51, 51);
+  font-size: 1rem;
+}
+
+.dropdown select {
+  padding: 10px 6rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 0 10px #939ba4;
+
+}
+
+/* Domain Selection */
+.domain-selection {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.domain-selection label {
+  font-size: 1rem;
+  color: #4a4a4a;
+}
+
+/* Résolution Buttons */
+.resolution-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.resolution-buttons .btn-primary {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: #496452;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.resolution-buttons .btn-primary:hover {
+  background: transparent;
+  border: 2px solid #496452;
+  color: #496452;
+}
+
+.resolution-buttons .btn-secondary {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: transparent;
+  color: #496452;
+  border: 2px solid #496452;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resolution-buttons .btn-secondary:hover {
+  background: #496452;
+  color: white;
+}
+
+/* Result Textarea */
+textarea {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  resize: none;
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+/* Error Styling */
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+.custom-keypad {
+  display: flex;
+  justify-content: center; /* Center the keypad */
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.keypad-btn {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: 1px solid rgb(156, 156, 156);
+  border-radius: 10px;
+  background-color: white;
+  color: rgb(51, 51, 51);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.keypad-btn:hover {
+  background-color: rgb(51, 51, 51);
+  color: white;
+}
+
+.input-row {
+  display: flex;
+  align-items: center; /* Vertically align input and buttons */
+  gap: 1rem; /* Add spacing between input and keypad */
+  margin-bottom: 1rem;
+}
+
+canvas {
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  display: block;
+  background-color: white;
+  cursor: crosshair;
+}
+.file-preview {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.file-name {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+ /* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltiptext {
+  visibility: hidden;
+  width: 220px; /* Adjust width as needed */
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Arrow below the tooltip */
+.tooltiptext::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* Position at the bottom of the tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+/* Show the tooltip on hover */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
