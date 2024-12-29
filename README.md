@@ -1,7 +1,7 @@
 
 # README - Application de Résolution d'Équations Polynômiales Basée sur les Microservices
 
-## 📚 **Description du Projet**
+##  **Description du Projet**
 Cette application repose sur une architecture microservices pour la résolution d'équations polynomiales, combinant des méthodes analytiques, numériques et des technologies avancées d'intelligence artificielle.
 
 L'application repose sur des microservices Spring pour implémenter les méthodes de résolution analytiques (linéaire, quadratique, Cardano et Ferrari) et numériques (Newton-Raphson, Bisection, Bairstow, Points Fixes et Müller) pour la résolution et la factorisation des équations polynomiales. Elle inclut également un microservice qui communique avec Gemini Flash 1.5 à travers le framework REST d'OpenAI pour fournir des explications détaillées du processus de résolution des équations.
@@ -17,7 +17,7 @@ Grâce à l'intégration de modèles de langage avancés (LLM, Gemini 1.5 Flash)
 
 ---
 
-## 🛠️ **Technologies Utilisées**
+##  **Technologies Utilisées**
 - **Backend :** Spring Boot
 - **Frontend :** Angular
 - **Passerelle API :** Spring Cloud Gateway
@@ -28,7 +28,7 @@ Grâce à l'intégration de modèles de langage avancés (LLM, Gemini 1.5 Flash)
 
 ---
 
-## ⚙️ **Architecture du Système**
+##  **Architecture du Système**
 L'application suit une architecture microservices modulaire avec les composants principaux suivants :
 1. **Client REST API (Frontend)** : Interface utilisateur intuitive pour saisir et afficher les résultats.
 2. **Spring Cloud API Gateway (Passerelle API)** : Point d'entrée central pour toutes les requêtes.
@@ -43,7 +43,7 @@ L'application suit une architecture microservices modulaire avec les composants 
 
 ---
 
-## 📊 **Flux de Travail Typique**
+## **Flux de Travail Typique**
 1. **Entrée Utilisateur :** Saisie directe, image ou écriture manuscrite.
 2. **Traitement API Gateway :** Acheminement vers les microservices appropriés.
 3. **Analyse & Résolution :** Application des méthodes analytiques ou numériques.
@@ -52,7 +52,7 @@ L'application suit une architecture microservices modulaire avec les composants 
 
 ---
 
-## 🚀 **Déploiement**
+## **Déploiement**
 ### Prérequis :
 - Docker
 - Node.js (pour Angular)
@@ -83,20 +83,20 @@ L'application suit une architecture microservices modulaire avec les composants 
 
 ---
 
-## 🔒 **Sécurité**
+## **Sécurité**
 - **CORS activé** : Contrôle des origines autorisées.
 - **Authentification API** : Jetons Bearer pour Google Cloud Vision et clé API Gemini API.
 
 ---
 
-## 🧠 **Fonctionnalités Clés de l'IA**
+## **Fonctionnalités Clés de l'IA**
 - **Google Cloud Vision API :** Extraction précise de texte.
 - **LLM Gemini 1.5 Flash :** Explications détaillées et choix dynamiques des méthodes de résolution.
 
 ---
 
 
-## 👥 **Auteurs**
+## **Auteurs**
 
 - **Imane BARAKATE**
 - **Oumaima DAGOUN**
