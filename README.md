@@ -1,4 +1,3 @@
-# README - Application de Résolution d'Équations Polynômiales Basée sur les Microservices
 
 # README - Application de Résolution d'Équations Polynômiales Basée sur les Microservices
 
