@@ -1,0 +1,17 @@
+spring.application.name=NewtonRaphsonResolution
+server.port=8084
+
+# Eureka Client Configuration
+eureka.client.service-url.defaultZone=http://eureka-server-container:8761/eureka/
+eureka.instance.prefer-ip-address=true
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+eureka.instance.instance-id=${spring.application.name}:${server.port}
+eureka.client.initial-instance-info-replication-interval-seconds=5
+eureka.client.registry-fetch-interval-seconds=5
+eureka.instance.lease-renewal-interval-in-seconds=5
+eureka.instance.lease-expiration-duration-in-seconds=10
+
+# Actuator for Health Check
+management.endpoints.web.exposure.include=*
+management.endpoint.health.show-details=always
